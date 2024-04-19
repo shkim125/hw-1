@@ -120,23 +120,12 @@
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
--- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
-
 -- The SQL statement for the movies output
 -- TODO!
 
--- Prints a header for the cast output
-.print ""
-.print "Top Cast"
-.print "========"
-.print ""
-
-
 -- The SQL statement for the cast output
 -- TODO!
+
 
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
@@ -221,9 +210,22 @@ VALUES
     ("Anne Hathaway", 3, "Selina Kyle")
     ;
 
+-- Prints a header for the movies output
+.print "Movies"
+.print "======"
+.print ""
+
 SELECT title, year_released, mpaa_rating, studio_info
 FROM movies
 ORDER BY year_released ASC;
+
+
+-- Prints a header for the cast output
+.print ""
+.print "Top Cast"
+.print "========"
+.print ""
+
 
 SELECT movies.title, actors.name, actors.character_played
 FROM movies
