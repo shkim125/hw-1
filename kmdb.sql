@@ -137,3 +137,95 @@
 
 -- The SQL statement for the cast output
 -- TODO!
+
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS actors;
+
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    year_released INTEGER,
+    mpaa_rating TEXT,
+    studio_info TEXT
+);
+
+CREATE TABLE actors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    movies_id INTEGER,
+    character_played TEXT
+);
+
+INSERT INTO movies(
+    title,
+    year_released,
+    mpaa_rating,
+    studio_info
+)
+VALUES(
+    "Batman Begins",
+    2005,
+    "PG-13",
+    "Warner Bros."
+);
+
+INSERT INTO movies(
+    title,
+    year_released,
+    mpaa_rating,
+    studio_info
+)
+
+VALUES(
+    "The Dark Knight",
+    2008,
+    "PG-13",
+    "Warner Bros."
+);
+
+INSERT INTO movies(
+    title,
+    year_released,
+    mpaa_rating,
+    studio_info
+)
+
+    VALUES(
+    "The Dark Knight Rises",
+    2012,
+    "PG-13",
+    "Warner Bros."
+    );
+
+INSERT INTO actors(
+    name,
+    movies_id,
+    character_played
+)   
+
+VALUES
+    ("Christian Bale", 1, "Bruce Wayne"),
+    ("Michael Caine", 1, "Alfred"),
+    ("Liam Neeson", 1, "Ra's Al Ghul"),
+    ("Katie Holmes", 1,"Rachel Dawes"),
+    ("Gary Oldman", 1, "Commissioner Gordon"),
+    ("Christian Bale", 2, "Bruce Wayne"),
+    ("Heath Ledger", 2, "Joker"),
+    ("Aaron Eckhart", 2, "Harvey Dent"),
+    ("Michael Caine", 2, "Alfred"),
+    ("Maggie Gyllenhaal", 2, "Rachel Dawes"),
+    ("Christian Bale", 3, "Bruce Wayne"),
+    ("Gary Oldman", 3, "Commissioner Gordon"),
+    ("Tom Hardy", 3, "Bane"),
+    ("Joseph Gordon-Levitt", 3, "John Blake"),
+    ("Anne Hathaway", 3, "Selina Kyle")
+    ;
+
+SELECT title, year_released, mpaa_rating, studio_info
+FROM movies
+ORDER BY year_released ASC;
+
+SELECT movies.title, actors.name, actors.character_played
+FROM movies
+INNER JOIN actors ON actors.movies_id = movies.id;
+
